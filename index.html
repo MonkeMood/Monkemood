@@ -188,6 +188,7 @@
       <a href="#about">About</a>
       <a href="#memes">Memes</a>
       <a href="#feed">X</a>
+      <a href="https://www.tiktok.com/@monkemood" target="_blank" rel="noopener">TikTok</a>
       <a href="#buy">How to Buy</a>
       <a href="#" class="btn btn-main btn-sm" id="navBuy" target="_blank" rel="noopener">Buy $MOOD</a>
     </div>
@@ -279,6 +280,7 @@
     <div class="cta">
       <a class="btn btn-main" id="xLink" href="#" target="_blank" rel="noopener">X / Twitter</a>
       <a class="btn btn-line" id="pumpLink" href="#" target="_blank" rel="noopener">pump.fun</a>
+      <a class="btn btn-line" id="ttLink" href="#" target="_blank" rel="noopener">TikTok</a>
       <a class="btn btn-line" id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a>
     </div>
   </div>
@@ -308,6 +310,7 @@ const CONFIG = {
   contractAddress: "",                     // paste your contract address, e.g. "7xKX...pump"
   xLink:       "https://x.com/MonkeMood",  // your X link
   pumpLink:    "",                         // your coin page on pump.fun
+  tiktokLink:  "https://www.tiktok.com/@monkemood",  // your TikTok
   telegramLink:"",                         // leave empty if you don't have one
 
   imagePrefix: "monke",                    // files are monke2.png, monke3.png ...
@@ -350,6 +353,7 @@ setLink("xLink", CONFIG.xLink);
 setLink("heroX", CONFIG.xLink);
 setLink("pumpLink", CONFIG.pumpLink);
 setLink("tgLink", CONFIG.telegramLink);
+setLink("ttLink", CONFIG.tiktokLink);
 const buyUrl = CONFIG.pumpLink || "#buy";
 const hb = document.getElementById("heroBuy"), nb = document.getElementById("navBuy");
 hb.href = buyUrl; nb.href = buyUrl;
