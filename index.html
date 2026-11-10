@@ -117,12 +117,18 @@
   .stat span{color:var(--muted);font-size:12.5px;font-weight:600}
 
   /* GALLERY */
-  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-  @media(min-width:600px){.gallery{grid-template-columns:repeat(3,1fr);gap:14px}}
-  @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
-  @media(min-width:1150px){.gallery{grid-template-columns:repeat(5,1fr)}}
-  .gallery .item{aspect-ratio:1/1;border-radius:16px;overflow:hidden;border:2px solid #1b221b;cursor:pointer;transition:.25s;background:#0e120e}
-  .gallery .item:hover{transform:scale(1.04);border-color:var(--gold);box-shadow:0 10px 30px rgba(255,200,61,.25);position:relative;z-index:5}
+  .gal-wrap{position:relative}
+  .gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 2px 14px;overscroll-behavior-x:contain}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery .item{flex:0 0 66%;scroll-snap-align:center;aspect-ratio:1/1;border-radius:18px;overflow:hidden;border:2px solid #1b221b;cursor:pointer;transition:.25s;background:#0e120e}
+  @media(min-width:600px){.gallery .item{flex-basis:32%}}
+  @media(min-width:900px){.gallery .item{flex-basis:24%}}
+  @media(min-width:1150px){.gallery .item{flex-basis:19%}}
+  .gallery .item:hover{border-color:var(--gold);box-shadow:0 8px 26px rgba(255,200,61,.25)}
+  .gnav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(6,8,6,.82);border:2px solid var(--gold);color:var(--gold);font-size:20px;cursor:pointer;z-index:6;display:flex;align-items:center;justify-content:center;transition:.2s;font-family:inherit}
+  .gnav:hover{background:var(--gold);color:#000}
+  .gnav.l{left:-6px} .gnav.r{right:-6px}
+  @media(hover:none){.gnav{display:none}}
   .gallery img{width:100%;height:100%;object-fit:cover;display:block}
   .more-wrap{text-align:center;margin-top:28px}
   .count{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
@@ -233,9 +239,12 @@
 <section id="memes">
   <div class="wrap">
     <h2 class="title reveal">The <span class="gold">Monke</span> Collection</h2>
-    <p class="sub reveal">Tap any meme to enlarge it, then download it and use it in your replies. Every mood has a monke.</p>
-    <div class="gallery" id="gallery"></div>
-    <div class="more-wrap"><button class="btn btn-line" id="moreBtn">Load more monkes 🐒</button></div>
+    <p class="sub reveal">Swipe through the collection. Tap any meme to enlarge it, then download it and use it in your replies.</p>
+    <div class="gal-wrap">
+      <button class="gnav l" id="galPrev" aria-label="Scroll left">&#10094;</button>
+      <div class="gallery" id="gallery"></div>
+      <button class="gnav r" id="galNext" aria-label="Scroll right">&#10095;</button>
+    </div>
     <p class="count" id="count"></p>
   </div>
 </section>
@@ -424,30 +433,21 @@ setMood(0);
 
 // Gallery
 const gallery = document.getElementById("gallery");
-const moreBtn = document.getElementById("moreBtn");
 const countEl = document.getElementById("count");
-const PAGE = 24;
-let next = CONFIG.firstImage;
-function addMore(){
-  const end = Math.min(next + PAGE - 1, CONFIG.lastImage);
-  for(let n = next; n <= end; n++){
-    const div = document.createElement("div");
-    div.className = "item";
-    const img = document.createElement("img");
-    img.src = imgPath(n); img.loading = "lazy"; img.decoding = "async"; img.alt = "MonkeMood meme " + n;
-    img.onerror = () => div.remove();
-    div.appendChild(img);
-    div.addEventListener("click", () => openLb(img));
-    gallery.appendChild(div);
-  }
-  next = end + 1;
-  const total = CONFIG.lastImage - CONFIG.firstImage + 1;
-  const shownN = Math.min(next - CONFIG.firstImage, total);
-  countEl.textContent = `Showing ${shownN} of ${total} monkes`;
-  if(next > CONFIG.lastImage) moreBtn.parentElement.style.display = "none";
+for(let n = CONFIG.firstImage; n <= CONFIG.lastImage; n++){
+  const div = document.createElement("div");
+  div.className = "item";
+  const img = document.createElement("img");
+  img.src = imgPath(n); img.loading = "lazy"; img.decoding = "async"; img.alt = "MonkeMood meme " + n;
+  img.onerror = () => div.remove();
+  div.appendChild(img);
+  div.addEventListener("click", () => openLb(img));
+  gallery.appendChild(div);
 }
-moreBtn.addEventListener("click", addMore);
-addMore();
+countEl.textContent = "← Swipe to see more monkes →";
+const step = () => Math.max(gallery.clientWidth * 0.8, 200);
+document.getElementById("galPrev").addEventListener("click", () => gallery.scrollBy({left: -step()}));
+document.getElementById("galNext").addEventListener("click", () => gallery.scrollBy({left: step()}));
 
 // Lightbox with prev / next / swipe
 const lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbDl = document.getElementById("lbDl");
