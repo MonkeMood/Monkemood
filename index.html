@@ -7,9 +7,9 @@
 <meta name="description" content="Every crypto emotion in one monkey. Pumping, dumping, crying & laughing. Just monkes reacting to the madness.">
 <meta property="og:title" content="MonkeMood $MOOD">
 <meta property="og:description" content="Every crypto emotion in one monkey.">
-<meta property="og:image" content="images/banner.jpg">
+<meta property="og:image" content="assets/images/monke1.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="images/logo.png">
+<link rel="icon" href="assets/images/monke1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -17,9 +17,9 @@
 ==========================================================
   HOW TO USE:
   1. Put your images in a folder called "images":
-       images/logo.png     -> round coin logo
-       images/banner.jpg   -> hero banner (optional)
-       images/1.jpg, 2.jpg, 3.jpg ... -> your monke meme collection
+       assets/images/monke1.png     -> round coin logo
+       assets/images/banner.jpg   -> hero banner (optional)
+       assets/images/1.jpg, 2.jpg, 3.jpg ... -> your monke meme collection
   2. Edit the "SETTINGS" block in the <script> at the very bottom
      (contract address, X link, pump.fun link, number of images).
 ==========================================================
@@ -114,10 +114,12 @@
   .mood p{font-size:13.5px;color:var(--muted)}
 
   /* GALLERY */
-  .gallery{columns:4 220px;column-gap:14px}
-  .gallery .item{break-inside:avoid;margin-bottom:14px;border-radius:18px;overflow:hidden;border:2px solid #1b221b;cursor:pointer;transition:.25s;background:#0e120e}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+  @media(max-width:560px){.gallery{grid-template-columns:repeat(2,1fr);gap:10px}}
+  .gallery .item{aspect-ratio:1/1;border-radius:18px;overflow:hidden;border:2px solid #1b221b;cursor:pointer;transition:.25s;background:#0e120e}
+  .more-wrap{text-align:center;margin-top:30px}
   .gallery .item:hover{transform:scale(1.04) rotate(-1.2deg);border-color:var(--gold);box-shadow:0 10px 35px rgba(255,200,61,.28);position:relative;z-index:5}
-  .gallery img{width:100%;display:block}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block}
 
   /* LIGHTBOX */
   #lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
@@ -162,7 +164,7 @@
 <nav>
   <div class="wrap">
     <a href="#top" class="logo">
-      <img src="images/logo.png" alt="" onerror="this.style.display='none'">
+      <img src="assets/images/monke1.png" alt="" onerror="this.style.display='none'">
       <span class="logo-text">Monke<span class="green">Mood</span></span>
     </a>
     <div class="nav-links">
@@ -177,8 +179,8 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <img class="hero-banner" src="images/banner.jpg" alt="MonkeMood banner" onerror="this.style.display='none'">
-    <img class="hero-logo" id="heroLogo" src="images/logo.png" alt="MonkeMood logo" onerror="this.style.display='none'">
+    <img class="hero-banner" src="assets/images/banner.jpg" alt="MonkeMood banner" onerror="this.style.display='none'">
+    <img class="hero-logo" id="heroLogo" src="assets/images/monke1.png" alt="MonkeMood logo" onerror="this.style.display='none'">
     <div><span class="pill">🍌 Just a monkey with a mood</span></div>
     <h1>Monke<span class="green">Mood</span></h1>
     <p class="tag">Every crypto emotion in one monkey. Pumping, dumping, crying &amp; laughing. Just monkes reacting to the madness. 🎭</p>
@@ -227,6 +229,7 @@
     <h2 class="title reveal">The <span class="gold">Monke</span> Collection</h2>
     <p class="sub reveal">Tap any meme to enlarge it, then download it and use it in your replies. Every mood has a monke.</p>
     <div class="gallery" id="gallery"></div>
+    <div class="more-wrap"><button class="btn btn-line" id="moreBtn">Load more monkes 🐒</button></div>
   </div>
 </section>
 
@@ -284,8 +287,9 @@ const CONFIG = {
   xLink:       "https://x.com/MonkeMood",  // your X link
   pumpLink:    "",                         // your coin page on pump.fun
   telegramLink:"",                         // leave empty if you don't have one
-  totalImages: 24,                         // number of images in /images (1.jpg ... N.jpg)
-  imageExt:    "jpg"                       // jpg / png / webp
+  imagePrefix: "monke",                    // file names: monke1.png, monke2.png ...
+  totalImages: 60,                         // number of images in /images (1.jpg ... N.jpg)
+  imageExt:    "png"                       // jpg / png / webp
 };
 /* ==================================================================== */
 
@@ -381,17 +385,27 @@ setMood(0);
 
 // Auto gallery
 const gallery = document.getElementById("gallery");
-for(let i = 1; i <= CONFIG.totalImages; i++){
-  const src = `images/${i}.${CONFIG.imageExt}`;
-  const div = document.createElement("div");
-  div.className = "item";
-  const img = document.createElement("img");
-  img.src = src; img.loading = "lazy"; img.alt = "MonkeMood meme " + i;
-  img.onerror = () => div.remove();   // missing images are hidden automatically
-  div.appendChild(img);
-  div.addEventListener("click", () => openLb(src));
-  gallery.appendChild(div);
+const moreBtn = document.getElementById("moreBtn");
+const PAGE = 24;           // how many memes to show at a time
+let shown = 0;
+function addMore(){
+  const end = Math.min(shown + PAGE, CONFIG.totalImages);
+  for(let i = shown + 1; i <= end; i++){
+    const src = `assets/images/${CONFIG.imagePrefix}${i}.${CONFIG.imageExt}`;
+    const div = document.createElement("div");
+    div.className = "item";
+    const img = document.createElement("img");
+    img.src = src; img.loading = "lazy"; img.decoding = "async"; img.alt = "MonkeMood meme " + i;
+    img.onerror = () => div.remove();   // missing images are hidden automatically
+    div.appendChild(img);
+    div.addEventListener("click", () => openLb(src));
+    gallery.appendChild(div);
+  }
+  shown = end;
+  if(shown >= CONFIG.totalImages) moreBtn.parentElement.style.display = "none";
 }
+moreBtn.addEventListener("click", addMore);
+addMore();
 
 // Lightbox
 const lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbDl = document.getElementById("lbDl");
