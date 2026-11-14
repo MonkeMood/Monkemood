@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SARU ($SARU) | One face. Every costume.</title>
+  <meta name="description" content="SARU (猿) is 'monkey' in Japanese. One deadpan face, every costume. No KOL. No blue check. Just a monkey who doesn't care.">
+  <meta name="theme-color" content="#fff4df">
+  <meta property="og:title" content="SARU ($SARU) | One face. Every costume.">
+  <meta property="og:description" content="No KOL. No blue check. Just a monkey who doesn't care.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SaruHQ">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Caveat+Brush&family=DM+Sans:wght@400;500;700&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#about">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="SARU home">
+    <img src="assets/img/face.webp" alt="" width="44" height="44">
+    <span class="brand-k">猿</span><span class="brand-t">SARU</span>
+  </a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="links" id="links">
+    <a href="#about">The Face</a>
+    <a href="#vault">Sticker Vault</a>
+    <a href="#maker">Meme Maker</a>
+    <a href="#token">Tokenomics</a>
+    <a href="#buy">How to buy</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="nav-cta">
+    <a class="btn btn-sm btn-ghost" href="https://x.com/SaruHQ" data-x target="_blank" rel="noopener">𝕏</a>
+    <a class="btn btn-sm btn-red" href="#buy" data-buy>Buy $SARU</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="kicker"><b>猿</b> = “monkey” in Japanese</p>
+    <h1 class="title"><span class="title-k" aria-hidden="true">猿</span><span class="title-t">SARU</span></h1>
+    <p class="tagline">One deadpan face.<br><em>Every costume.</em></p>
+    <p class="sub">No KOL. No blue check. Just a monkey who doesn’t care.</p>
+
+    <div class="ca" id="caBox">
+      <span class="ca-label">CA</span>
+      <code class="ca-val" id="caVal">coming soon</code>
+      <button class="ca-copy" id="caCopy" disabled>Copy</button>
+    </div>
+
+    <div class="hero-btns">
+      <a class="btn btn-red btn-lg" href="#buy" data-buy>Buy $SARU</a>
+      <a class="btn btn-ink btn-lg" href="#vault">Open the Sticker Vault</a>
+    </div>
+  </div>
+
+  <div class="stage" aria-label="SARU costume swapper">
+    <div class="stage-card" id="stageCard">
+      <img id="stageImg" src="" alt="SARU in a costume" width="440" height="440">
+      <div class="stage-label"><span>Today’s costume:</span> <b id="stageName">…</b></div>
+    </div>
+    <div class="face-wrap" id="faceWrap">
+      <img class="face" src="assets/img/face.webp" alt="The SARU face: one deadpan monkey" width="150" height="150">
+      <div class="bubble" id="bubble">…</div>
+    </div>
+    <div class="float-layer" id="floatLayer" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============================ TICKER ============================ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker">
+    <span>NO KOL</span><i>★</i><span>NO BLUE CHECK</span><i>★</i><span>NO ROADMAP</span><i>★</i><span>NO UTILITY</span><i>★</i><span>JUST MONKEY</span><i>★</i><span>ONE FACE</span><i>★</i><span>EVERY COSTUME</span><i>★</i>
+    <span>NO KOL</span><i>★</i><span>NO BLUE CHECK</span><i>★</i><span>NO ROADMAP</span><i>★</i><span>NO UTILITY</span><i>★</i><span>JUST MONKEY</span><i>★</i><span>ONE FACE</span><i>★</i><span>EVERY COSTUME</span><i>★</i>
+  </div>
+</div>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="sec about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-face reveal">
+      <div class="polaroid">
+        <img src="assets/img/face.webp" alt="The SARU face" width="360" height="360">
+        <p class="hand">the face. it never changes.</p>
+      </div>
+      <img class="about-sticker s1" data-pick="costumes" alt="" width="150" height="150">
+      <img class="about-sticker s2" data-pick="moods" alt="" width="130" height="130">
+    </div>
+
+    <div class="about-copy reveal">
+      <h2 class="h2">What is <span class="mark">SARU</span>?</h2>
+      <p class="lead">A monkey. That’s it. That’s the whole pitch.</p>
+      <p><b>猿 (saru)</b> means “monkey” in Japanese. SARU has exactly one expression, a calm, slightly judgmental, deeply unbothered stare, and infinite outfits. Dinosaur? Sure. Astronaut? Fine. King, pirate, banana, Santa? Whatever. The face stays the same.</p>
+      <p>The market is up? The market is down? <b>Same face.</b> Someone paid a KOL to scream about a rocket? <b>Same face.</b></p>
+
+      <ul class="rules">
+        <li><span>1</span> One face. It does not change.</li>
+        <li><span>2</span> Costumes are optional, and unlimited.</li>
+        <li><span>3</span> No KOLs. No paid blue checks. No fake hype.</li>
+        <li><span>4</span> If in doubt, look unbothered.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VAULT ============================ -->
+<section class="sec vault" id="vault">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The Sticker Vault</p>
+      <h2 class="h2">Every costume. <span class="mark">All of them.</span></h2>
+      <p class="lead"><b id="vaultCount">0</b> hand-drawn crayon stickers and counting. Tap one to download it, copy it, or turn it into a meme. Go reply to someone with it. That’s the whole strategy.</p>
+    </div>
+
+    <div class="vault-tools reveal">
+      <div class="tabs" id="tabs" role="tablist" aria-label="Sticker categories"></div>
+      <label class="search"><span class="sr">Search stickers</span><input id="search" type="search" placeholder="Search: pirate, banana, king…" autocomplete="off"></label>
+    </div>
+
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <p class="empty" id="empty" hidden>No sticker like that. Yet. The monkey is looking into it. 🙈</p>
+
+    <!-- add yours -->
+    <div class="join reveal" id="join">
+      <div class="join-copy">
+        <p class="eyebrow">Open vault</p>
+        <h3 class="h3">The vault lives on GitHub.<br>Add your own costume.</h3>
+        <p>Every sticker here is just an image file in the repo’s <code>stickers/</code> folder. Drop a new one in, push, and it shows up on this page.</p>
+        <ol class="join-steps">
+          <li><b>Fork</b> the repo (or just edit it, if it’s yours).</li>
+          <li><b>Add</b> your image to <code>stickers/&lt;category&gt;/your-sticker.webp</code> (transparent PNG/WebP, about 440 px).</li>
+          <li><b>Push</b> or open a PR. The manifest rebuilds itself. Done.</li>
+        </ol>
+        <div class="join-btns">
+          <a class="btn btn-ink" id="repoBtn" href="#" target="_blank" rel="noopener" hidden>Open the GitHub repo</a>
+          <a class="btn btn-ghost" id="addBtn" href="#" target="_blank" rel="noopener" hidden>Upload a sticker</a>
+        </div>
+      </div>
+      <div class="join-code" aria-hidden="true">
+<pre>saru/
+├─ index.html
+├─ stickers/
+│  ├─ moods/
+│  │  └─ too-cool.webp
+│  ├─ costumes/
+│  │  ├─ pirate.webp
+│  │  └─ <b>your-costume.webp</b>  ← 🐒
+│  ├─ christmas/
+│  └─ couples/
+└─ stickers/manifest.js  (auto)</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MEME MAKER ============================ -->
+<section class="sec maker" id="maker">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Meme Maker</p>
+      <h2 class="h2">Make it <span class="mark">yours.</span></h2>
+      <p class="lead">Pick a costume, add a caption, download the PNG, reply to something with it. SARU does the talking. Obviously with no enthusiasm.</p>
+    </div>
+
+    <div class="maker-grid reveal">
+      <div class="maker-preview">
+        <div class="canvas-wrap"><canvas id="mkCanvas" width="1000" height="1000" aria-label="Meme preview"></canvas></div>
+        <div class="maker-actions">
+          <button class="btn btn-red" id="mkDownload">Download PNG</button>
+          <button class="btn btn-ink" id="mkCopy">Copy image</button>
+          <button class="btn btn-ghost" id="mkRandom">🎲 Surprise me</button>
+        </div>
+        <p class="note" id="mkNote" role="status"></p>
+      </div>
+
+      <div class="maker-controls">
+        <label class="field"><span>Top text</span><input id="mkTop" type="text" maxlength="48" value="WHEN THE CHART DUMPS"></label>
+        <label class="field"><span>Bottom text</span><input id="mkBottom" type="text" maxlength="48" value="SARU DOESN'T CARE"></label>
+
+        <div class="field">
+          <span>Background</span>
+          <div class="bgs" id="mkBgs">
+            <button data-bg="sun" class="bg bg-sun on" title="Rising sun"></button>
+            <button data-bg="cream" class="bg bg-cream" title="Paper"></button>
+            <button data-bg="banana" class="bg bg-banana" title="Banana"></button>
+            <button data-bg="night" class="bg bg-night" title="Night"></button>
+            <button data-bg="white" class="bg bg-white" title="White"></button>
+            <button data-bg="clear" class="bg bg-clear" title="Transparent"></button>
+          </div>
+        </div>
+
+        <label class="field"><span>Sticker size</span><input id="mkSize" type="range" min="45" max="100" value="68"></label>
+
+        <div class="field">
+          <span>Pick a sticker</span>
+          <select id="mkCat" aria-label="Sticker category"></select>
+          <div class="picker" id="mkPicker"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TOKENOMICS ============================ -->
+<section class="sec token" id="token">
+  <div class="wrap">
+    <div class="sec-head light reveal">
+      <p class="eyebrow">Tokenomics</p>
+      <h2 class="h2">Numbers. <span class="mark">Very few.</span></h2>
+      <p class="lead">It’s a meme coin. There’s a supply, there’s a chain, and there’s a monkey. Nothing else is being promised.</p>
+    </div>
+
+    <div class="cards reveal">
+      <article class="stat"><p class="stat-k">Chain</p><p class="stat-v" data-fill="chain">Solana</p></article>
+      <article class="stat"><p class="stat-k">Total supply</p><p class="stat-v" data-fill="supply">1,000,000,000</p></article>
+      <article class="stat"><p class="stat-k">Buy / Sell tax</p><p class="stat-v" data-fill="tax">0%</p></article>
+      <article class="stat"><p class="stat-k">Launch</p><p class="stat-v sm">pump.fun fair launch</p></article>
+      <article class="stat"><p class="stat-k">KOL deals</p><p class="stat-v">0</p></article>
+      <article class="stat"><p class="stat-k">Paid blue checks</p><p class="stat-v">0</p></article>
+    </div>
+
+    <div class="nope reveal">
+      <h3 class="h3">What you will <u>not</u> find here</h3>
+      <ul>
+        <li><s>Paid influencer shills</s> <em>(the monkey doesn’t do sponsored content)</em></li>
+        <li><s>A 47-page roadmap with rockets</s> <em>(we have costumes)</em></li>
+        <li><s>“Utility”</s> <em>(it is a monkey)</em></li>
+        <li><s>Promises about price</s> <em>(it’s a meme coin, please be an adult)</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ HOW TO BUY ============================ -->
+<section class="sec buy" id="buy">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How to buy</p>
+      <h2 class="h2">Four steps. <span class="mark">Zero drama.</span></h2>
+    </div>
+
+    <div class="steps reveal">
+      <article class="step"><span class="num">1</span><h3>Get a wallet</h3><p>Install a Solana wallet like <a href="https://phantom.com/" target="_blank" rel="noopener">Phantom</a> or <a href="https://solflare.com/" target="_blank" rel="noopener">Solflare</a>. Write the seed phrase on paper. Never share it. Not even with a monkey.</p></article>
+      <article class="step"><span class="num">2</span><h3>Get some SOL</h3><p>Buy SOL on any exchange and send it to your wallet. A little extra covers network fees.</p></article>
+      <article class="step"><span class="num">3</span><h3>Open pump.fun</h3><p>Go to <a href="https://pump.fun/" target="_blank" rel="noopener">pump.fun</a> and connect your wallet.</p></article>
+      <article class="step"><span class="num">4</span><h3>Paste the CA &amp; swap</h3><p>Paste the SARU contract address, swap SOL for $SARU, then put on your best unbothered face.</p></article>
+    </div>
+
+    <div class="buy-cta reveal">
+      <div class="ca ca-big"><span class="ca-label">CA</span><code class="ca-val" data-ca>coming soon</code><button class="ca-copy" data-copy disabled>Copy</button></div>
+      <a class="btn btn-red btn-lg" href="#" data-buy>Buy $SARU on pump.fun</a>
+      <p class="warn">⚠️ Only trust the contract address posted on <a href="https://x.com/SaruHQ" data-x target="_blank" rel="noopener">@SaruHQ</a> and on this site. Anyone DMing you a “better link” is not a monkey. Do your own research.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ROADMAP ============================ -->
+<section class="sec road" id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Roadmap</p>
+      <h2 class="h2">The official <span class="mark">non-roadmap</span></h2>
+    </div>
+    <ol class="phases reveal">
+      <li><img data-pick="moods" alt="" width="120" height="120"><b>Phase 1</b><p>Wake up. Don’t care.</p></li>
+      <li><img data-pick="costumes" alt="" width="120" height="120"><b>Phase 2</b><p>Put on a costume.</p></li>
+      <li><img data-pick="costumes" alt="" width="120" height="120"><b>Phase 3</b><p>Still don’t care.</p></li>
+      <li><img data-pick="christmas" alt="" width="120" height="120"><b>Phase 4</b><p>New costume.</p></li>
+      <li class="loop"><span>∞</span><b>Repeat</b><p>See Phase 1.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="sec faq" id="faq">
+  <div class="wrap narrow">
+    <div class="sec-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="h2">Questions. <span class="mark">Answers. Ish.</span></h2>
+    </div>
+    <div class="qa reveal">
+      <details open><summary>What is SARU?</summary><p>A meme coin on Solana starring one deadpan monkey in an infinite wardrobe. 猿 (saru) = “monkey” in Japanese.</p></details>
+      <details><summary>Why a monkey?</summary><p>Monkeys are funny. Unbothered monkeys are funnier. Unbothered monkeys in a dinosaur costume are peak internet.</p></details>
+      <details><summary>Is there a KOL, an influencer, or a paid shill?</summary><p>No. No KOLs, no paid blue checks, no sponsored “alpha”. It’s just the community, the stickers, and the face.</p></details>
+      <details><summary>Where’s the roadmap?</summary><p>You’re looking at it. See Phase 1.</p></details>
+      <details><summary>When is the contract address?</summary><p>Coming soon. When it’s live it will be on this page and on <a href="https://x.com/SaruHQ" data-x target="_blank" rel="noopener">@SaruHQ</a>. Nowhere else is official.</p></details>
+      <details><summary>Can I use the stickers?</summary><p>Yes. That’s what they’re for. Download them, post them, reply with them, make memes. Tag <b>@SaruHQ</b> so the monkey can pretend not to notice.</p></details>
+      <details><summary>Is this financial advice?</summary><p>No. $SARU is a meme coin with no intrinsic value and no expectation of financial return. Only risk what you can afford to lose, and do your own research.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand brand-foot" href="#top"><img src="assets/img/face.webp" alt="" width="44" height="44"><span class="brand-k">猿</span><span class="brand-t">SARU</span></a>
+      <p class="foot-tag">One face. Every costume.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="https://x.com/SaruHQ" data-x target="_blank" rel="noopener">𝕏 @SaruHQ</a>
+      <a href="#" id="tgLink" target="_blank" rel="noopener" hidden>Telegram</a>
+      <a href="#" id="ghLink" target="_blank" rel="noopener" hidden>GitHub</a>
+      <a href="#vault">Sticker Vault</a>
+      <a href="#maker">Meme Maker</a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">$SARU is a meme coin created for entertainment. It has no intrinsic value and no expectation of financial return. There is no formal team, roadmap, or promise of any kind. Nothing on this site is financial, legal, or investment advice. Crypto is volatile; you can lose everything you put in. Do your own research and never invest more than you can afford to lose. SARU is not affiliated with any other project, brand, or person.</p>
+    <p class="copy">© 2026 SARU. Made by monkeys who don’t care. 🙈</p>
+  </div>
+</footer>
+
+<!-- ============================ LIGHTBOX ============================ -->
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Sticker preview">
+  <button class="lb-x" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  <div class="lb-card">
+    <div class="lb-img"><img id="lbImg" src="" alt=""></div>
+    <h3 class="lb-title" id="lbTitle"></h3>
+    <p class="lb-cat" id="lbCat"></p>
+    <div class="lb-actions">
+      <button class="btn btn-red" id="lbDownload">Download PNG</button>
+      <button class="btn btn-ink" id="lbCopy">Copy image</button>
+      <button class="btn btn-ghost" id="lbMeme">Meme it →</button>
+    </div>
+    <p class="note" id="lbNote" role="status"></p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="stickers/manifest.js"></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
